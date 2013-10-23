@@ -1,0 +1,64 @@
+@mixin notification {
+    .notification {
+        @include transition(all ease-out 0.2s);
+        position: absolute;
+        left: 50%;
+        top: -60px;
+        width: 800px;
+        margin-left: -400px;
+        text-align: center;
+        pointer-events:none;
+
+        //TODO: enable below for pointer-events in IE
+        //background:url('your_transparent.png');
+        //filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='your_transparent.png', sizingMethod='scale');
+        //background:none !important;
+
+        .notification-inner {
+            $height: 30px;
+            $close-size: 8px;
+            $close-padding: ($height - $close-size) / 2;
+            $side-padding: 10px;
+            
+            position: relative;
+            border-radius: $standard-border-radius;
+            color: #fff;
+            font-size: $font-size;
+            line-height: $height;
+            height: $height;
+            display: inline-block;
+            padding: 0 ($close-size + 2*$close-padding) 0 $side-padding;
+            background: $blue-gray;
+            pointer-events: auto;
+
+            &.warn {
+                background: $red;
+            }
+
+            .close {
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: $height;
+                height: $height;
+                padding: $close-padding;
+                
+                svg {
+                    width: $close-size;
+                    height: $close-size;
+                }
+
+                .svg-main {
+                    fill: rgba(#fff, 0.8);
+                }
+
+                &:hover {
+                    .svg-main {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
