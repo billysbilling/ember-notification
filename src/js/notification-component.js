@@ -53,7 +53,7 @@ module.exports = Em.Component.extend({
 
     show: function() {
         var self = this;
-        this.appendTo(Billy.get('rootElement'));
+        this.appendTo(this.container.lookup('application:main').get('rootElement'));
         this.setHideTimeout();
         Em.run.next(function(){
             self.set('opacity', 1);
