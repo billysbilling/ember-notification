@@ -15,8 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "ember": "billysbilling/bower-ember#master",
-    "ember-svg": "billysbilling/ember-svg#master",
-    "style-guide": "billysbilling/style-guide#master"
+    "ember": "billysbilling/bower-ember#~1.3.0",
+    "ember-svg": "billysbilling/ember-svg#~1.0.0",
+    "style-guide": "billysbilling/style-guide#~1.0.0"
   }
 }
