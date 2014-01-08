@@ -31,6 +31,10 @@
             background: $blue-gray;
             pointer-events: auto;
 
+            &.success {
+                background: $green;
+            }
+
             &.warn {
                 background: $red;
             }

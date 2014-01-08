@@ -10,8 +10,11 @@ module.exports = function(container) {
 
     return {
         notify: notify,
+        success: function(text) {
+            notify(text, 'success');
+        },
         warn: function(text) {
             notify(text, 'warn');
         }
-    }
+    };
 };
