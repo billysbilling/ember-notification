@@ -1,13 +1,9 @@
+var highestZIndex = require('highest-z-index');
+
 var stack = [];
 
 function register(message) {
     deregister(message);
-    var last = stack.get('lastObject');
-    if (last) {
-        message.set('zIndex', last.get('zIndex') + 10);
-    } else {
-        message.set('zIndex', 3000);
-    }
     stack.push(message);
 }
 
@@ -17,21 +13,21 @@ function deregister(message) {
 
 module.exports = Em.Component.extend({
     template: require('../templates/notification-component'),
-    
+
     classNames: ['notification'],
-    
+
     attributeBindings: ['style'],
 
     zIndex: null,
-    
+
     type: null,
-    
+
     message: null,
-    
+
     containerSelector: '.notification-container',
 
     opacity: 0,
-    
+
     stack: stack,
 
     style: function() {
@@ -53,6 +49,8 @@ module.exports = Em.Component.extend({
 
     show: function() {
         var self = this;
+        var zIndex = highestZIndex() + 1;
+        this.set('zIndex', zIndex);
         this.appendTo(this.container.lookup('application:main').get('rootElement'));
         this.setHideTimeout();
         Em.run.next(function(){
@@ -90,7 +88,7 @@ module.exports = Em.Component.extend({
     mouseEnter: function() {
         clearTimeout(this._hideTimeoutId);
     },
-    
+
     mouseLeave: function() {
         this.setHideTimeout();
     },
