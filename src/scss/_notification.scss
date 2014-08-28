@@ -1,6 +1,7 @@
 @mixin notification {
     .notification {
-        @include transition(all ease-out 0.2s);
+        transition: all ease-out 0.2s;
+        -webkit-transition: all ease-out 0.2s;
         position: absolute;
         left: 50%;
         top: -60px;
@@ -19,7 +20,7 @@
             $close-size: 8px;
             $close-padding: ($height - $close-size) / 2;
             $side-padding: 10px;
-            
+
             position: relative;
             border-radius: $standard-border-radius;
             color: #fff;
@@ -47,7 +48,7 @@
                 width: $height;
                 height: $height;
                 padding: $close-padding;
-                
+
                 svg {
                     width: $close-size;
                     height: $close-size;
