@@ -12,7 +12,7 @@ function deregister(message) {
 }
 
 module.exports = Em.Component.extend({
-    template: require('../templates/notification-component'),
+    layout: require('../templates/notification-component'),
 
     classNames: ['notification'],
 
