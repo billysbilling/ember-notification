@@ -40,6 +40,15 @@
                 background: $red;
             }
 
+            a {
+                color: #fff;
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
             .close {
                 cursor: pointer;
                 position: absolute;
